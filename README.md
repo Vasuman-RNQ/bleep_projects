@@ -5,7 +5,7 @@ Here is a comprehensive `README.md` file formatted in Markdown, tailored for a G
 
 ---
 
-# Project 02 — Employee Attrition & Workplace Analytics
+# Project 01 — Employee Attrition & Workplace Analytics
 
 ## 📊 Project Overview
 
