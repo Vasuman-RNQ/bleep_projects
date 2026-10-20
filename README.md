@@ -1,75 +1,112 @@
 # bleep_projects
 Doing pre-internship projects
 
-Here is a comprehensive `README.md` file formatted in Markdown, tailored for a Git repository containing the notebook and project structure on Employee Attrition & Workplace Analytics (using the IBM HR Analytics dataset mentioned in your notebook metadata and project overview).
+
 
 ---
+# Project 01 — Student Performance & Academic Analytics
 
-# Project 01 — Employee Attrition & Workplace Analytics
+## 1. Project Overview & Dataset
 
-## 📊 Project Overview
+* **Dataset:** UCI Student Performance Dataset (Mathematics)
 
-Employee turnover is a critical challenge for modern organizations. This project explores the **IBM HR Analytics Employee Attrition & Performance Dataset** to uncover key factors driving workforce attrition and provides actionable data-driven insights to improve employee retention.
 
-* **Suggested Resume Title:** Employee Attrition & Workforce Analytics using Python
-* **Problem Statement:** Understand the primary drivers behind employee turnover and identify patterns associated with high-risk attrition.
+* **Problem Statement:** An educational institution wants to understand the factors associated with student academic performance.
 
----
 
-## 🛠️ Project Structure & Pipeline
-
-The analysis is structured into a logical, end-to-end data science pipeline:
-
-1. **Data Understanding & Setup:** Loading libraries (`pandas`, `numpy`, `matplotlib`, `seaborn`), setting visual themes, and inspecting dataset shapes, columns, and data types.
-2. **Data Cleaning & Preprocessing:** Handling missing values, checking for duplicate rows, correcting data types, and filtering datasets to prepare features for analysis.
-3. **Exploratory Data Analysis (EDA):** Performing univariate, bivariate, and multivariate analysis alongside correlation matrices to study relationships between features like `Quantity`, `UnitPrice`, and overall metrics.
-4. **Data Visualization:** Generating a comprehensive suite of charts to fulfill exploratory requirements:
-* **Histograms:** Distribution analysis of numerical features.
-* **Box Plots:** Outlier detection and evaluation.
-* **Bar Charts & Count Plots:** Ranking top categories (e.g., products, countries, and day-of-week trends).
-* **Scatter Plots:** Multi-variable relationship tracking.
-* **Correlation Heatmaps:** Visualizing statistical dependencies.
-* **Time-Series Charts:** Tracking metrics over time.
+* **Suggested Resume Title:** Student Performance & Academic Analytics using Python
 
 
 
 ---
 
-## ⚙️ Requirements & Installation
+## 2. Data Understanding & Setup
 
-To run this project locally or in a Jupyter/Google Colab environment, ensure you have the following Python libraries installed:
+The project begins by importing necessary data science libraries (`pandas`, `numpy`, `matplotlib`, `seaborn`) and programmatically downloading the dataset from the UCI Machine Learning Repository.
 
-```bash
-pip install pandas numpy matplotlib seaborn openpyxl
-
-```
-
----
-
-## 🚀 Usage
-
-1. Clone the repository:
-```bash
-git clone https://github.com/your-username/employee-attrition-analytics.git
-
-```
+* **Dataset Shape:** 395 rows, 33 columns
 
 
-2. Open the Jupyter Notebook or Google Colab file provided in the repository.
-3. Ensure your dataset path matches the input configurations in the notebook, then run all cells sequentially to reproduce the data cleaning steps, visualizations, and insights.
+* **Target Variable:** `G3` (Final Grade, scored from 0 to 20)
+
+
 
 ---
 
-## 📈 Key Insights & Findings
+## 3. Data Cleaning & Preprocessing
 
-* Identified major demographic and professional indicators strongly correlated with employee departure.
-* Highlighted department-specific turnover trends to assist HR teams in prioritizing retention strategies.
+* **Missing Values & Duplicates:** Checked and verified zero missing values and zero duplicate records.
+
+
+* **Feature Engineering:**
+* `G_avg`: Average grade across periods G1, G2, and G3.
+
+
+* `Pedu_total`: Combined parental education score (`Medu` + `Fedu`).
+
+
+* `at_risk`: Binary indicator for students failing (`G3 < 10`).
+
+
+
+
+* **Outlier Detection:** Used the Interquartile Range (IQR) method on student `absences`, detecting 15 outlier students with over 20 absences.
+
+
 
 ---
 
-## 🤝 Contributing
+## 4. Exploratory Analysis & Key Insights
 
-Contributions, suggestions, and feature requests are welcome! Feel free to open an issue or submit a pull request.
+* **Final Grades Distribution:** The mean final grade (`G3`) across all students is approximately **10.42** out of 20.
+
+
+* **Study Time Impact:** Students with higher weekly study times (`studytime` >= 5 hours) demonstrate higher mean final grades (11.40) compared to lower study tiers.
+
+
+* **Gender Disparity:** Male students in this dataset show a slightly higher mean final grade (**10.91**) compared to female students (**9.97**).
+
+
+* **Top Correlated Features with Final Grade (`G3`):**
+* `G2` (Second Period Grade): $0.90$
+
+* `G1` (First Period Grade): $0.80$
+
+* `Medu` (Mother's Education): $0.22$
+
+* `failures` (Past Class Failures): $-0.36$
+
+
+
+
+---
+
+## 5. Data Visualization Suite
+
+A comprehensive suite of **17 visualizations** was generated and saved to the `plots/` directory, including:
+
+1. **Histograms:** Distribution of final grades (`G3`), student age, and absences.
+
+
+2. **Box Plots:** Final grades broken down by study time, address/family size, and gender.
+
+
+3. **Bar Charts:** Impact of combined parental education, past failures, and travel time on final grades.
+
+
+4. **Count Plots:** Extracurricular activities vs. at-risk status, and desire for higher education by gender.
+
+
+5. **Scatter Plots:** Absences vs. final grades, and Period 1 grade (`G1`) vs. Final grade (`G3`).
+
+
+6. **Correlation Heatmap:** Full feature correlation matrix.
+
+
+7. **Progression Chart:** Average student grade trend across academic periods (`G1` $\rightarrow$ `G2` $\rightarrow$ `G3`).
+
+
+8. **Additional Analyses:** Violin plots for health status and overall student performance tier breakdown.
 
 
 # Project 02 — Employee Attrition & Workplace Analytics
